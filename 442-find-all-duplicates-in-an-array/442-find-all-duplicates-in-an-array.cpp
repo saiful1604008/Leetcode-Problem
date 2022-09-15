@@ -8,12 +8,15 @@ public:
     map <int,int> mp;
     
     for(int i = 0; i < n; i++){
-        mp[nums[i]]++;
-        
-        if (mp[nums[i]] > 1)
-            v.push_back(nums[i]);
-        
+        mp[nums[i]]++;      
     }
-    return v;
+    
+    for (auto it:mp){
+        if (it.second > 1)
+            v.push_back(it.first);
+    }
+        return v;
+    
+
     }
 };
