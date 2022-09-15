@@ -1,18 +1,20 @@
 class Solution {
 public:
     bool isAnagram(string s, string t) {
-        int freqs[26] = {0}, freqt[26] = {0};
-        for (char ch:s){
-            freqs[ch -'a']++ ;
-        }
-        for (char ch:t){
-            freqs[ch -'a']--;
-        }
-        
-        for (int i = 0; i < 26; i++){
-            if (freqs[i] != freqt[i])
-                return false;
-        }
+       map<char,int>mp1;
+       map<char,int>mp2;
+       if(s.size() != t.size()){
+          return false;
+       }
+       for(int i=0;i<s.size();i++){
+           mp1[s[i]]++;
+           mp2[t[i]]++;
+          
+       } 
+         if(mp1 != mp2){
+               return false;
+           }
         return true;
+        
     }
 };
