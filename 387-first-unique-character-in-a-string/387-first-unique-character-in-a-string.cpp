@@ -1,20 +1,24 @@
 class Solution {
 public:
     int firstUniqChar(string s) {
-        int n = s.length();
-        vector <int> count(26,0);
-        
-        for (int i = 0; i < n ; i++){
-            count[s[i]- 'a'] += 1;
-            
+        map<char,int>m;
+    for(int i=0;i<s.size();i++){
+        m[s[i]]++;
+    }
+    //int flag=1;
+    int idx;
+    string ch;
+    vector <string> res;
+    for(int i=0;i<s.size();i++){
+        if(m[s[i]]==1){
+            //cout<< i << " " << s[i];
+            return i;
+            //ch = s[i];
+            //flag=0;
+            break;
         }
-        
-        for (int i = 0; i < n; i++){
-            if (count[s[i]- 'a'] == 1)
-                return i;
-        }
-        
-        return -1;
+    }
+            return - 1;
         
     }
 };
